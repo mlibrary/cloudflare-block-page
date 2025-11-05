@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US" 
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://cdn.jsdelivr.net/npm/@umich-lib/web@latest/umich-lib.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico" type="image/png">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        /* Sticky footer layout */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1;
+            max-width:1280px; 
+            margin: 0px auto; 
+            padding: var(--space-large) var(--space-xx-large) var(--space-xx-large) var(--space-xx-large);
+        }
+
+        .responsive-grid {
+            display: grid;
+            gap: var(--space-large);
+            grid-template-columns: 1.4fr 1fr;
+        }
+
+        p{
+            max-width: 65ch;
+            word-break: break-word;
+        }
+
+        @media (max-width: 721px) {
+            .responsive-grid {
+                grid-template-columns: 1fr;
+            }
+            .door-img{
+                display: none;
+            }
+            main{
+                padding: var(--space-medium);
+            }
+        }
+
+        h2{
+            margin-bottom: var(--space-small);
+        }
+
+        /* footer region */
+        .footer {
+            background: var(--color-blue-400);
+        }
+
+        .footer ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer ul a {
+            display: inline-block;
+            padding: .25rem 0;
+        }
+
+        .footer ul a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .footer ul a span:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .footer a {
+            color: white;
+        }
+
+        .footer a>svg {
+            margin-right: 0.5em;
+        }
+
+        .address {
+            max-width: 22ch;
+        }
+
+        .footer__content {
+            color: var(--color-blue-100);
+            padding: 3rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 350px);
+            gap: 3rem;
+        }
+
+        .footer__content .first-column ul li a {
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .footer__content ul li a {
+            text-decoration: none;
+        }
+
+        .footer__content h2 {
+            color: var(--color-blue-200);
+            font-size: 0.875rem;
+            font-weight: 800;
+            letter-spacing: 1.25px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .footer__policies {
+            border-left: solid 1px var(--color-blue-300);
+            padding-left: 2em;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .footer__policies {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+
+        .footer__disclaimer {
+            background: var(--color-blue-500);
+            color: var(--color-blue-200);
+            padding: 1rem 0;
+        }
+
+        .footer__disclaimer a {
+            color: var(--color-blue-200);
+        }
+
+        .footer__disclaimer p {
+            margin: 0;
+        }
+
+        @media screen and (max-width:40rem) {
+            .footer__disclaimer p {
+                padding-top: 0.5rem;
+            }
+        }
+
+        @media screen and (min-width: 820px) {
+            .footer__disclaimer p {
+                display: inline-block;
+            }
+
+            .footer__disclaimer p+p {
+                margin-left: 2rem;
+            }
+        }
+
+        /* end footer region */
+    </style>
+</head>
+
+<body>
+    <m-website-header style="padding-top:var(--space-large)"name="">
+    </m-website-header>
+    <main>
+        <h1 style="max-width: 37ch; font-family: var(--font-base-family); font-size: 32px; margin-top: 0; margin-bottom: var(--space-large);">Sorry, your attempt to access a
+                    University of Michigan Library website has been blocked.</h1>
+        <div class="responsive-grid">
+            <div>
+                <h2 style="margin-top: 0;">Why have I been blocked?</h2>
+                <p style="margin-top: 0; margin-bottom: var(--space-large);">
+                    This website is using a security service that blocks access attempts that appear to be online
+                    attacks. This block may have been triggered by your IP address' reputation or location, data you
+                    submitted, a very large number of requests from your IP, or the way you attempted to access the
+                    page.
+                </p>
+                <h2>How can I get access?</h2>
+                <p style="margin-top: 0;">
+                    If you are a University of Michigan student, faculty member, or staff member, you may be able to
+                    access the website immediately by connecting to the <a href="https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started">U-M VPN</a> and then trying to access the website
+                    again.
+                </p>
+                <p>
+                    We encourage you to e-mail the U-M Library team at <a href="mailto:lit-ae-systems@umich.edu">lit-ae-systems@umich.edu</a> to report this issue.
+                    Please let us know what content you were trying to access when you received this message.
+                </p>
+                <p>
+                    Include the following information that will help us investigate:
+                </p>
+                <ul>
+                    <li><strong>IP address:</strong> <span id="cfep_clientip">::CLIENT_IP::</span></li>
+                    <li><strong>Cloudflare Ray ID:</strong> <span id="cfep_rayid">::RAY_ID::</span></li>
+                </ul>
+            </div>
+            <div>
+                <img class="door-img"src="access_error_yellow_accent 1.png" alt=""
+                    style="width: 100%; height: auto;" />
+            </div>
+        </div>
+    </main>
+    <footer class="footer" id="footer">
+        <div class="viewport-container">
+            <div class="footer__content">
+                <section class="first-column">
+                    <h2>University of Michigan Library</h2>
+                    <ul>
+                        <li><a href="https://lib.umich.edu/"><span class="address">913 S. University Avenue Ann Arbor,
+                                    MI 48109-1190</span></a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <div class="footer__disclaimer">
+            <div class="viewport-container">
+                <p>© 2025, Regents of the University of Michigan</p>
+                <p>
+                    Built with the
+                    <a href="https://design-system.lib.umich.edu/">U-M Library Design System</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@umich-lib/web@latest/dist/umich-lib/umich-lib.esm.js"></script>
+</body>
+
+</html>
