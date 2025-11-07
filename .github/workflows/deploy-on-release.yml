@@ -1,0 +1,26 @@
+name: Deploy on Release
+
+on:
+  release:
+    types: [ released ]
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    name: Sync S3
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Sync S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --follow-symlinks --delete
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+          AWS_REGION: ${{ vars.AWS_REGION }}
+          SOURCE_DIR: ${{ vars.SOURCE_DIR }}
